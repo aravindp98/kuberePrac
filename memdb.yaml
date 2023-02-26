@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vprodmem
+  labels:
+    app: vpromem
+spec:
+  selector:
+    matchLabels:
+      app: vpromem
+  template:
+    metadata:
+      labels:
+        app: vpromem
+    spec:
+      containers:
+        - name: vpromem
+          image: memcached
+          ports:
+            - name: vpromem-port
+              containerPort: 11211
+
+
